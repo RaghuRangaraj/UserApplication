@@ -1,0 +1,39 @@
+<h3>User Details</h3>
+<div class="details-block">
+<span class="fa fa-plus add-icon" (click)="navigateToAdd()"> Add </span>
+<span class="fa fa-trash add-icon" (click)="deleteSelectedUser()"> Delete </span>
+<span class="fa fa-pencil add-icon" (click)="navigateToEdit()"> Edit </span>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>SurName</th>
+              <th>Birth Date</th>
+              <th>Phone</th>
+              <th>City</th>
+              <th>Street</th>
+              <th>Number</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of users; let i = index" (click)="selectedUser(i, user)" [class.active]="i == selectedRow">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.birthDate}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.street}}</td>
+            <td>{{user.number}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+
+<input type="text" placeholder="Enter user id" [(ngModel)]="searchText"/> 
+<input type="button" value="Find user" (click)="findUserDetails()"/>

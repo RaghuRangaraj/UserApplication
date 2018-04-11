@@ -1,0 +1,11 @@
+.table tr.active td {
+    background-color:#123456 !important;
+    color: white;
+}
+.details-block {
+    display: flex;
+    justify-content: space-around;
+}
+.add-icon {
+    margin-bottom: 10px;
+}

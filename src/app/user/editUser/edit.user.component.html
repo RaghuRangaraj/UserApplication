@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Edit user</h1>
+    <form>
+      <div class="form-group form-container">
+        <label for="id" class="label-details">Id</label>
+        <input type="text" disabled autocomplete="off" name="userId" class="form-control text-details" id="id" [(ngModel)]="userDetails.id" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="name" class="label-details">Name</label>
+        <input type="text" autocomplete="off" name="name" class="form-control text-details" id="name" [(ngModel)]="userDetails.name" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="surname" class="label-details">Surname</label>
+        <input type="text" autocomplete="off" name="surname" class="form-control text-details" id="surname" [(ngModel)]="userDetails.surname" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="birthDate" class="label-details">Birth Date</label>
+        <input type="text" autocomplete="off" name="birthDate" class="form-control text-details" id="birthDate" [(ngModel)]="userDetails.birthDate" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="phone" class="label-details">Phone</label>
+        <input type="text" autocomplete="off" name="phone" class="form-control text-details" id="phone" [(ngModel)]="userDetails.phone" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="city" class="label-details">City</label>
+        <input type="text" autocomplete="off" name="city" class="form-control text-details" id="city" [(ngModel)]="userDetails.city" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="street" class="label-details">Street</label>
+        <input type="text" autocomplete="off" name="street" class="form-control text-details" id="street" [(ngModel)]="userDetails.street" required>
+      </div>
+      <div class="form-group form-container">
+        <label for="number" class="label-details">Number</label>
+        <input type="text" autocomplete="off" name="number" class="form-control text-details" id="number" [(ngModel)]="userDetails.number" required>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="saveUserData()">Save</button>
+
+    </form>
+</div>

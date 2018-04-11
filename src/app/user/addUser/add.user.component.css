@@ -1,0 +1,12 @@
+.label-details {
+    float: left;
+    width: 30%;
+    font-weight: bold;
+}
+.text-details {
+    width: 60%;
+    margin-left: 10%;
+}
+.form-container {
+    display: flex;
+}
