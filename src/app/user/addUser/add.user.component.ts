@@ -20,14 +20,15 @@ export class AddUserComponent implements OnInit {
   }
 
   addUserData() {
-    this._userService.addUserData(this.userDetails).subscribe((response: any) => {
-      this.users = response;
-      this.users.push(this.userDetails);
-      alert('New user added');
-      this._router.navigate(['']);
-    }, (error: any) => {
-      console.log('No Users found');
+    this._userService.addUserData(this.userDetails).subscribe(
+      response => {
+        this.users = response;
+        this.users.push(this.userDetails);
+        alert('New user added');
+        this._router.navigate(['']);
+    },
+    err => {
+      console.log('Couldnt add user');
     });
   }
-
 }

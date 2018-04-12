@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { UsersService } from './user/users.service';
+import { HttpClientModule } from '@angular/common/http';
 import { ROUTES } from './app.routes';
-import { HttpModule } from '@angular/http';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -16,12 +16,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     RouterModule.forRoot(ROUTES, {
       useHash: true,
       preloadingStrategy: PreloadAllModules
     }),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]

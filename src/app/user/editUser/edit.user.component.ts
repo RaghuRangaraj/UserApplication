@@ -27,26 +27,26 @@ export class EditUserComponent implements OnInit {
   }
 
   getUserDetails() {
-    this._userService.getUserData().subscribe((response: Array<UserDetails>) => {
-      this.users = response;
-      this.userDetails = this.users[this.id];
-    }, (error: any) => {
-      console.log('No Users found');
+    this._userService.getUserData().subscribe(
+      response => {
+        this.users = response;
+        this.userDetails = this.users[this.id];
     });
   }
 
   saveUserData() {
-    this._userService.editUserData(this.userDetails.id).subscribe((response: any) => {
-      const self = this;
-      const index = response.findIndex(function(item, i) {
+    this._userService.editUserData(this.userDetails.id).subscribe(
+      response => {
+        const self = this;
+        const index = response.findIndex(function(item, i) {
         return item.id === self.users[i].id;
       });
       self.users[index] = this.userDetails;
       alert('updated user whose id is ' + this.id);
       this._router.navigate(['']);
-    }, (error: any) => {
+    },
+    err => {
       console.log('Couldnt update user');
     });
   }
-
 }

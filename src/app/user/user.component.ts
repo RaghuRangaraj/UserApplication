@@ -21,12 +21,13 @@ export class UserComponent implements OnInit {
   searchText: string;
 
   ngOnInit() {
-    this._userService.getUserData().subscribe((response: Array<UserDetails>) => {
-      this.users = response;
-      console.log(this.users);
-    }, (error: any) => {
-      console.log('No Users found');
-    });
+    this._userService.getUserData().subscribe(
+      data => {
+        this.users = data;
+      },
+      err => {
+        console.log('No Users found');
+      });
   }
 
   selectedUser(index: number, user: UserDetails) {
@@ -45,25 +46,29 @@ export class UserComponent implements OnInit {
   }
 
   deleteSelectedUser() {
-    this._userService.deleteUserData(this.selectedUserDetails.id).subscribe((response: any) => {
-      console.log(response);
-      const self = this;
-      const index = response.findIndex(function(item, i) {
-        return item.id === self.selectedUserDetails.id;
-      });
-      this.users.splice(index, 1);
-      console.log(response);
-      alert('deleted user whose id is ' + this.selectedUserDetails.id);
-    }, (error: any) => {
-      console.log('Couldnt Remove');
+    this._userService.deleteUserData(this.selectedUserDetails.id).subscribe(
+      response => {
+        const self = this;
+        const index = response.findIndex(function(item, i) {
+          return item.id === self.selectedUserDetails.id;
+        });
+        this.users.splice(index, 1);
+        alert('deleted user whose id is ' + this.selectedUserDetails.id);
+    },
+    err => {
+      console.log('Couldnt delete user');
     });
   }
 
   findUserDetails() {
-    this._userService.findUsers(this.searchText).subscribe((response: Array<UserDetails>) => {
-      this.users = response;
-      this.users = this.users.filter(x =>  x.id === this.searchText);
-    });
+    this._userService.findUsers(this.searchText).subscribe(
+      response => {
+        this.users = response;
+        this.users = this.users.filter(x =>  x.id === this.searchText);
+      },
+      err => {
+        console.log('Couldnt find any user');
+      });
   }
 
 }
